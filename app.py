@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication
 from src.MainWindow import MainWindow
 
 import sys
@@ -9,4 +9,4 @@ window = MainWindow()
 
 window.show()
 
-app.exec()
+sys.exit(app.exec())

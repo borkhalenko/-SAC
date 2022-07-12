@@ -1,21 +1,30 @@
 from PyQt6.QtCore import QSize, Qt
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QMainWindow,
     QPushButton,
     QHBoxLayout,
     QVBoxLayout,
-    QWidget)
+    QToolBar,
+    QWidget,
+)
+from PySide6.QtCore import Slot
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("System Administrator's Center (SAC)")
+
+        # creating layouts
         main_layout = QVBoxLayout()
         toolbar_layout = QHBoxLayout()
         content_layout = QHBoxLayout()
         main_layout.addLayout(toolbar_layout)
         main_layout.addLayout(content_layout)
+
+        # creating a toolbar in the toolbar layout
+        toolbar = QToolBar("Main toolbar")
+        self.addToolBar(toolbar)
 
         # test
         central_widget = QWidget()
@@ -32,5 +41,8 @@ class MainWindow(QMainWindow):
 
         self.setCentralWidget(central_widget)
 
+        self.showMaximized()
+
+    @Slot()
     def the_button_was_clicked(self, checked):
-        print(f"Clicked! Current state is {checked}" )
+        print(f"Clicked! Current state is {checked}")
