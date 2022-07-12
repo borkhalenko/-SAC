@@ -1,4 +1,4 @@
-from PyQt6.QtCore import QSize, Qt
+from PySide6.QtCore import QSize, Qt
 from PySide6.QtWidgets import (
     QMainWindow,
     QPushButton,
