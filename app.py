@@ -2,14 +2,14 @@ import os
 import sys
 
 from PySide6.QtWidgets import QApplication
-from src.MainWindow import MainWindow
+from src.SacWindow import SacWindow
 
 
-os.environ['QSG_RHI_BACKEND'] = 'opengl'
+os.environ["QSG_RHI_BACKEND"] = "opengl"
 
 app = QApplication(sys.argv)
 
-window = MainWindow()
+window = SacWindow()
 
 window.show()
 
