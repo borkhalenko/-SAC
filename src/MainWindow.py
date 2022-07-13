@@ -8,12 +8,19 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 from PySide6.QtCore import Slot
+from PySide6.QtGui import QIcon, QPixmap
+
+from src.utils.path import *
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("System Administrator's Center (SAC)")
+
+        icon_path = (IMAGES_DIR / 'main_icon.png').resolve().as_posix()
+        icon_pixmap = QPixmap(icon_path)
+        self.setWindowIcon(QIcon(icon_pixmap))
 
         # creating layouts
         main_layout = QVBoxLayout()
@@ -42,6 +49,11 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(central_widget)
 
         self.showMaximized()
+
+#    def addMenuBar(self):
+#        self.menu = self.MenuBar()
+
+
 
     @Slot()
     def the_button_was_clicked(self, checked):
