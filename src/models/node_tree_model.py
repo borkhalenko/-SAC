@@ -1,10 +1,10 @@
-from PySide6.QtCore import Qt, QAbstractTableModel, QModelIndex
+from PySide6.QtCore import Qt, QAbstractItemModel, QModelIndex
 from PySide6.QtGui import QColor
 
 
-class NodeTreeModel(QAbstractTableModel):
+class NodeTreeModel(QAbstractItemModel):
     def __init__(self, data=None):
-        QAbstractTableModel.__init__(self)
+        QAbstractItemModel.__init__(self)
 
         self.input_dates = None
         self.input_magnitudes = None
