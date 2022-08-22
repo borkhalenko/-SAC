@@ -10,15 +10,15 @@ from PySide6.QtWidgets import (
     QSizePolicy
 )
 
-from src.models.node_tree_model import NodeTreeModel
+from src.models.sac_unit_model import SacUnitModel
 
 
 class SacWidget(QWidget):
     def __init__(self):
         QWidget.__init__(self)
-        self.model = NodeTreeModel()
-        self.table_view = QTreeView()
-        self.table_view.setModel(self.model)
+        self.model = SacUnitModel()
+        self.tree_view = QTreeView()
+        self.tree_view.setModel(self.model)
 
         # # QTableView Headers
         # self.horizontal_header = self.table_view.horizontalHeader()
@@ -34,7 +34,7 @@ class SacWidget(QWidget):
 
         size = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         size.setHorizontalStretch(1)
-        self.table_view.setSizePolicy(size)
+        self.tree_view.setSizePolicy(size)
 
         # creating layouts
         self.main_layout = QVBoxLayout()
@@ -43,7 +43,7 @@ class SacWidget(QWidget):
         self.main_layout.addLayout(self.toolbar_layout)
         self.main_layout.addLayout(self.content_layout)
 
-        self.content_layout.addWidget(self.table_view)
+        self.content_layout.addWidget(self.tree_view)
         self.setLayout(self.main_layout)
 
         # creating a toolbar in the toolbar layout
